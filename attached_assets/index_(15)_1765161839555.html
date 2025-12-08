@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <!-- =========================================================
+       PAGE-SPECIFIC (keep in this page)
+       ========================================================= -->
+  <title>Kingdom Connects</title>
+  <meta name="description" content="Find a local church, browse trusted businesses, or submit your own listing. Kingdom Connects helps churches and community thrive.">
+  <link rel="canonical" href="https://kingdomconnects.org/">
+
+  <!-- Open Graph (per-page) -->
+  <meta property="og:title" content="Kingdom Connects – Faith-Based Business & Church Directory">
+  <meta property="og:description" content="Discover and support local Christian businesses and ministries in your area. Free listings for members and churches.">
+  <meta property="og:url" content="https://kingdomconnects.org/">
+  <meta property="og:image" content="https://kingdomconnects.org/assets/og-kingdom-connects.png">
+
+  <!-- Twitter (per-page; mirrors OG) -->
+  <meta name="twitter:title" content="Kingdom Connects – Faith-Based Business & Church Directory">
+  <meta name="twitter:description" content="Discover and support local Christian businesses and ministries in your area.">
+  <meta name="twitter:image" content="https://kingdomconnects.org/assets/og-kingdom-connects.png">
+
+  <!-- (Optional per-page) -->
+  <meta name="keywords" content="Kingdom Connects, Christian business directory, church listings, faith-based businesses, community outreach, Venice Florida, Sarasota County, Charlotte County">
+  <meta name="author" content="Fluba Designs LLC">
+
+  <!-- =========================================================
+       MOVE TO SHARED INCLUDE LATER (site-wide defaults)
+       ========================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Resource hints (perf) -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.gstatic.com">
+  <link rel="dns-prefetch" href="//firestore.googleapis.com">
+
+  <!-- Crawling / UI tint -->
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#081529" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff"  media="(prefers-color-scheme: light)">
+
+  <!-- Open Graph defaults -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter defaults -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <!-- CSS (order matters) -->
+  <link rel="stylesheet" href="styles/layout.css?v=7">
+  <link rel="stylesheet" href="styles/theme.css?v=7">
+  <link rel="stylesheet" href="styles/buttons.css?v=7">
+  <link rel="stylesheet" href="styles/forms.css?v=7">
+  <link rel="stylesheet" href="styles/loading-skeletons.css">
+  <link rel="stylesheet" href="styles/overrides.css?v=7">
+  <!-- ===== END of SHARED block to move into include later ===== -->
+</head>
+<body>
+  <a id="top"></a>
+  <div class="page-wrap">
+    <!-- Header injected by components.js -->
+    <div id="header"></div>
+
+    <main class="page-content" id="main">
+      <!-- STATUS MESSAGE (for logout, etc.) -->
+      <div id="pageStatus" class="hidden"></div>
+
+      <!-- HERO SECTION -->
+      <section>
+        <article class="card text-center p-md">
+          <h1 class="gold-metallic hero-title">
+            Support Faith-Aligned Businesses
+          </h1>
+          <p class="mx-auto-content-lg text-lg line-height-relaxed">
+            Kingdom Connects helps the Body of Christ support each other's businesses. Find trusted Christian businesses in your community and help local entrepreneurs thrive.
+          </p>
+          
+          <!-- Quick Search Bar -->
+          <div class="search-container">
+            <form action="business_directory.html" method="GET" class="homepage-search-form">
+              <input 
+                type="search" 
+                name="q" 
+                placeholder="Try: 'plumber', 'auto repair', or 'Venice FL'..." 
+                class="search-input-full"
+                aria-label="Search for businesses by name, category, or location"
+                title="Search by business name (e.g., Joe's Plumbing), category (e.g., Construction), or location (e.g., Sarasota)"
+              >
+              <button 
+                type="submit" 
+                class="action-button search-button-full" 
+                title="Search for Christian businesses in your area"
+              >
+                🔍 Search
+              </button>
+            </form>
+            <p class="search-hint">
+              💡 Search by business name, category, or city
+            </p>
+          </div>
+
+          <!-- Temporarily commented out - moved to CTA blocks below
+          <div class="flex-gap-center">
+            <a href="business_directory.html" class="action-button btn-secondary" title="Browse all Christian businesses in our directory">📋 Browse All Businesses</a>
+            <a href="church_directory.html" class="action-button btn-secondary" title="Find churches near you">⛪ Find Churches</a>
+          </div>
+          -->
+        </article>
+      </section>
+
+      <!-- Trust Signals / Live Stats -->
+      <section>
+        <div class="card info-card">
+          <div id="liveStats" class="stats-grid">
+            <div>
+              <div class="gold-metallic stat-display" id="statsBusinesses">0</div>
+              <div class="text-muted">Christian Businesses</div>
+            </div>
+            <div>
+              <div class="gold-metallic stat-display" id="statsChurches">0</div>
+              <div class="text-muted">Churches Connected</div>
+            </div>
+            <div>
+              <div class="gold-metallic stat-display" id="statsTithed">$0</div>
+              <div class="text-muted">Tithed to Ministries</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK ACTION CARDS (Mobile-First Design) -->
+      <section>
+        <div class="grid-3">
+          <!-- Block 1 -->
+          <article class="cta-block">
+            <div class="card">
+              <h2 class="gold-metallic">Find Your Church</h2>
+              <p>Browse churches near you and connect with a local congregation that fits your walk.</p>
+              <a href="church_directory.html"
+                 class="action-button btn-gold"
+                 title="Search our directory of local churches">⛪ Find Your Church</a>
+            </div>
+          </article>
+
+          <!-- Block 2 -->
+          <article class="cta-block">
+            <div class="card">
+              <h2 class="gold-metallic">Business Directory</h2>
+              <p>Discover trusted, faith-aligned businesses in your community—by category or location.</p>
+              <a href="business_directory.html"
+                 class="action-button btn-gold"
+                 title="Browse Christian businesses by category or location">📋 Browse Businesses</a>
+            </div>
+          </article>
+
+          <!-- Block 3 -->
+          <article class="cta-block">
+            <div class="card">
+              <h2 class="gold-metallic">Add to Directory</h2>
+              <p>Submit your business, register your church, or nominate a church in just minutes—free and easy.</p>
+              <a href="add_to_directory.html"
+                 class="action-button btn-gold"
+                 title="Add your business, church, or nominate a church - FREE">✍️ Add to Directory</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- USER DASHBOARDS (Business & Church) -->
+      <section class="hidden" id="userDashboardsSection">
+        <article class="card">
+          <h2 class="gold-metallic text-center">Your Dashboards</h2>
+          
+          <div id="userBusinessesSection" class="hidden">
+            <h3 class="gold">Your Businesses</h3>
+            <div id="userBusinessesList" class="card-list"></div>
+          </div>
+
+          <div id="userChurchesSection" class="hidden">
+            <h3 class="gold">Your Churches</h3>
+            <div id="userChurchesList" class="card-list"></div>
+          </div>
+
+          <div id="noDashboardsMessage" class="text-center text-muted hidden">
+            <p>No businesses or churches assigned to your account yet.</p>
+            <div class="button-row">
+              <a href="add_to_directory.html" class="action-button btn-gold">Add to Directory</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- LOGIN PROMPT FOR NON-LOGGED-IN USERS -->
+      <section class="hidden" id="loginPromptSection">
+        <article class="card text-center">
+          <h2 class="gold-metallic">Are You a Business Owner or Church Leader?</h2>
+          <p class="text-lg line-height-relaxed">
+            Create a free account to manage your business listings and church profiles.
+          </p>
+          <div class="button-row">
+            <a href="add_to_directory.html" class="action-button btn-gold">Create Free Account</a>
+            <a href="login.html" class="action-button">Login</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- ADMIN ACCESS (Temporary - for debugging) -->
+      <section>
+        <div class="text-center">
+          <a href="admin/index.html" class="action-button btn-secondary" title="Admin Dashboard">⚙️ Admin</a>
+        </div>
+      </section>
+
+      <!-- BROWSE BY CATEGORY (Dynamic - only shows when categories exist) -->
+      <section class="hidden" id="categorySection">
+        <div class="card">
+          <h2 class="gold-metallic text-center mb-24">Browse by Category</h2>
+          <div id="categoryGrid" class="category-grid">
+            <div class="text-muted text-center loading-placeholder">
+              Loading categories...
+            </div>
+          </div>
+          <div class="text-center mt-24">
+            <a href="business_directory.html" class="gold">View All Categories →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PRO BUSINESSES (only shows when Pro businesses exist) -->
+      <section class="hidden" id="featuredSection">
+        <div class="card">
+          <div class="section-header-flex">
+            <h2 class="gold-metallic mt-0">Featured Pro Businesses</h2>
+            <a href="pricing.html" class="gold section-link">Want to be featured? Upgrade to Pro →</a>
+          </div>
+          <div id="featuredBusinesses" class="featured-grid">
+            <div class="text-muted text-center loading-placeholder">
+              Loading featured businesses...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section>
+        <div class="card text-center">
+          <h2 class="gold-metallic hero-subtitle">How Kingdom Connects Works</h2>
+          <div class="how-it-works-grid">
+            <div>
+              <h3 class="gold text-2xl">1. Browse</h3>
+              <p>Search for faith-aligned businesses by category, location, or church affiliation.</p>
+            </div>
+            <div>
+              <h3 class="gold text-2xl">2. Connect</h3>
+              <p>Find trusted Christian business owners in your community who share your values.</p>
+            </div>
+            <div>
+              <h3 class="gold text-2xl">3. Support</h3>
+              <p>Help local entrepreneurs thrive while strengthening the Body of Christ economically.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORT THE KINGDOM -->
+      <section>
+        <div class="card card-gradient-alt text-center">
+          <h2 class="gold-metallic hero-subtitle">💰 Support the Kingdom</h2>
+          <p class="mx-auto-content-lg text-lg line-height-relaxed">
+            Kingdom Connects operates on a <strong>faith-based tithing model</strong>. 10% of all Pro subscription revenue goes directly back to churches and ministries. When you upgrade to Pro or refer a business owner, you're not just growing your business—you're funding outreach, supporting local congregations, and advancing God's Kingdom.
+          </p>
+          <div class="flex-gap-center mt-lg">
+            <a href="pricing.html" class="action-button btn-gold">💎 Upgrade to Pro</a>
+            <a href="donate.html" class="action-button btn-gold">❤️ Donate Now</a>
+            <a href="for-churches.html" class="action-button btn-secondary">⛪ Learn About Tithing</a>
+          </div>
+          <p class="text-muted mt-md">
+            <small>Every Pro subscription helps churches fund missions, outreach programs, and community services.</small>
+          </p>
+        </div>
+      </section>
+
+      <!-- VALUE PROPOSITION -->
+      <section>
+        <div class="card">
+          <h2 class="gold">What is Kingdom Connects?</h2>
+          <p>
+            A community-powered directory where church members and faith-aligned business owners connect, grow,
+            and support each other. Discover trusted providers and help small businesses thrive while building God's Kingdom.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="gold">Is it free?</h2>
+          <p>
+            Yes! Listing your business is <strong>always free</strong> for church members. We offer optional Pro features ($9-12/month) for enhanced visibility, but the core directory will always be free. Plus, 10% of all revenue goes back to churches and outreach programs.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="gold">Why people use Kingdom Connects</h2>
+          <ul class="list-spaced">
+            <li>Local, faith-aligned businesses curated by the community</li>
+            <li>Support fellow believers while getting quality service</li>
+            <li>Free business listings that are never deleted</li>
+            <li>10% of revenue goes back to churches and ministries</li>
+            <li>Clean, mobile-friendly browsing and quick contact</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- DID YOU KNOW? FACTOID -->
+      <section>
+        <div class="card info-card-gold text-center hidden" id="factoidCard">
+          <h3 class="gold-metallic text-2xl">💡 Did You Know?</h3>
+          <p id="factoidText" class="text-content-italic"></p>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS / SOCIAL PROOF (Placeholder) -->
+      <section>
+        <div class="card card-gradient-alt">
+          <h2 class="gold-metallic text-center">Join Christian Businesses & Churches Across Florida</h2>
+          <div class="text-center">
+            <p class="text-content-center">
+              Kingdom Connects is growing across Southwest Florida—from Venice and Englewood to Port Charlotte and Sarasota. Whether you're a church leader looking to support your members or a business owner seeking Kingdom-minded customers, you belong here.
+            </p>
+            <a href="add_to_directory.html" class="action-button btn-gold" >Get Listed Today</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EMAIL NEWSLETTER SIGNUP -->
+      <section>
+        <div class="card info-card text-center">
+          <h2 class="gold-metallic">Stay Connected</h2>
+          <p class="text-lg">Get weekly updates on new businesses, featured listings, and community stories.</p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Enter your email address" 
+              class="input-dark newsletter-input" 
+              required
+            >
+            <button type="submit" class="action-button btn-gold newsletter-button">Subscribe</button>
+          </form>
+          <p class="text-muted text-sm">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section>
+        <div class="card text-center">
+          <h2 class="gold">Ready to Get Started?</h2>
+          <p class="text-lg">
+            Join Kingdom Connects and become part of a community that supports faith-aligned commerce.
+          </p>
+          <div class="flex-gap-center">
+            <a href="business_directory.html" class="action-button btn-gold">Browse Businesses</a>
+            <a href="add_to_directory.html" class="action-button btn-gold">List Your Business Free</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injected by components.js -->
+    <div id="footer"></div>
+  </div>
+
+  <!-- JS (header/footer modular) -->
+  <script src="js/logout-utils.js" type="module"></script>
+  <script src="js/maintenance-check.js" type="module"></script>
+  <script src="js/header_public.js" type="module"></script>
+  <script src="js/footer_public.js" defer></script>
+  <script src="js/loading-skeletons.js" defer></script>
+  <script src="js/button-effects.js" defer></script>
+  <script src="js/homepage-enhancements.js" type="module" defer></script>
+  <script src="js/factoid-loader.js" type="module" defer></script>
+</body>
+</html>

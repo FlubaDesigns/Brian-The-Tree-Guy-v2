@@ -1,0 +1,156 @@
+PROJECT: Full redesign of the existing "Brian The Tree Guy" website.
+CONTENT RULE: Use ONLY existing services and existing written content. DO NOT add new services.
+GOAL: Modernize layout, improve readability, improve conversion, make phone number prominent, optimize for mobile, maintain existing branding (orange).
+DEPLOYMENT: Must work as a static site (HTML/CSS/JS only; NO PHP).
+
+---------------------------------------------
+1. BRAND COLORS
+---------------------------------------------
+PRIMARY: #FF7F00  (existing orange; use for buttons, highlights, headings)
+SECONDARY: #222222 (charcoal gray; for text and footer)
+BACKGROUND: #F4F4F4 (light gray)
+WHITE: #FFFFFF
+
+---------------------------------------------
+2. TYPOGRAPHY (SPECIFIC FONTS)
+---------------------------------------------
+USE THIS EXACT STACK:
+
+font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+HEADINGS:
+- Weight: 700 (Bold)
+- Size ranges: 32–40px for hero, 22–28px for section headings
+
+BODY TEXT:
+- Weight: 400–500
+- Size: 16–18px
+- Line-height: 1.5–1.6
+
+BUTTONS:
+- Weight: 600
+- Letter-spacing: 0.5px
+
+---------------------------------------------
+3. HEADER & NAVIGATION
+---------------------------------------------
+KEEP EXISTING MENU ITEMS:
+- Home
+- Services
+- Gallery
+- Contact
+
+REDESIGN RULES:
+- Sticky header (position: fixed, top: 0)
+- Left: Company name or existing logo file
+- Right: Navigation links
+- Add visible phone number in header: "Call Now: 941-277-2154"
+- Mobile: Replace navigation links with a hamburger menu
+- Hamburger menu slides down with full-width items
+
+---------------------------------------------
+4. HERO SECTION (KEEP EXISTING CONTENT)
+---------------------------------------------
+CONTENT TO INCLUDE:
+- Existing business name text
+- Existing tagline text (use whatever is currently on the site)
+- Phone number (click-to-call)
+
+DESIGN RULES:
+- Full-width hero block
+- Background: solid white OR subtle tree-related background image (use existing images only if provided; otherwise leave blank)
+- Large headline using existing text
+- Sub-headline from existing site
+- Primary button:
+  TEXT: "Call Now – 941-277-2154"
+  STYLE: Orange background (#FF7F00), white text, 14px padding radius 6px
+
+---------------------------------------------
+5. SERVICES SECTION (USE EXACT EXISTING SERVICES)
+---------------------------------------------
+USE ONLY THE SERVICES ALREADY PRESENT ON THE CURRENT SITE.
+
+Each service becomes a "service card" with:
+- Title (exact text from existing site)
+- Short description (existing text, not invented)
+- Simple icon (optional, does NOT represent new services)
+
+LAYOUT:
+- 3-column grid on desktop
+- 2-column grid on tablet
+- 1-column on mobile
+- Each card uses a white box with light shadow.
+
+---------------------------------------------
+6. GALLERY PAGE (USE EXISTING IMAGES ONLY)
+---------------------------------------------
+REDESIGN RULES:
+- Grid layout: auto-fit, minmax(200px, 1fr)
+- Each image opens in a lightbox modal when clicked
+- Use existing image filenames only
+- No new gallery items added
+
+If images are missing, insert placeholder blocks labeled "Image Coming Soon."
+
+---------------------------------------------
+7. CONTACT PAGE (USE EXISTING TEXT)
+---------------------------------------------
+INCLUDE ONLY:
+- Existing phone number
+- Existing contact message
+- Existing service area (if present on current site)
+
+DESIGN:
+- Large click-to-call button
+- Clean white background
+- Centered layout
+
+---------------------------------------------
+8. FOOTER (USE EXISTING INFO)
+---------------------------------------------
+INCLUDE ONLY:
+- Business name (as currently written)
+- Phone number
+- Navigation links (Home, Services, Gallery, Contact)
+- Copyright text
+
+DESIGN:
+- Dark background (#222222)
+- White text
+- Centered alignment
+
+---------------------------------------------
+9. JAVASCRIPT REQUIREMENTS
+---------------------------------------------
+ONLY use JS for:
+- Mobile menu toggle
+- Gallery lightbox
+- Optional smooth scroll
+
+DO NOT add new interactive features beyond those.
+
+---------------------------------------------
+10. FILE STRUCTURE
+---------------------------------------------
+/css
+    styles.css  (ALL styling here)
+/js
+    main.js     (menu + lightbox)
+/images
+    (existing images only)
+/index.html
+/services.html
+/gallery.html
+/contact.html
+
+---------------------------------------------
+11. OVERALL REDESIGN OUTCOME
+---------------------------------------------
+- Site becomes modern and mobile-first
+- All ORIGINAL content is preserved
+- No new services are added
+- Phone number is highly visible
+- Orange branding remains central
+- Readability and spacing greatly improved
+- Gallery becomes professional-looking with modal viewer
+- Structure becomes clean and ready for GitHub/Firebase

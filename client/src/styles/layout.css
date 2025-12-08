@@ -1,0 +1,1149 @@
+/* ==========================================================================
+   LAYOUT STYLES
+   Spacing, positioning, grid, flexbox, and responsive layout utilities
+   ========================================================================== */
+
+/* ==========================================================================
+   Base Layout
+   ========================================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Container Utilities
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ==========================================================================
+   Top Call Bar Layout (Mobile Only)
+   ========================================================================== */
+.top-call-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  min-height: 2.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .top-call-bar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Header Layout
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 2.75rem;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .header {
+    top: 0;
+  }
+}
+
+.header-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .header-inner {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-inner {
+    padding: 0 2rem;
+  }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    height: 5rem;
+  }
+}
+
+.header-logo {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.logo-tree {
+  height: 2rem;
+  width: auto;
+}
+
+@media (min-width: 480px) {
+  .logo-tree {
+    height: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-tree {
+    height: 3rem;
+  }
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: hsl(var(--foreground));
+}
+
+@media (min-width: 480px) {
+  .logo-title {
+    font-size: 0.9rem;
+  }
+}
+
+.logo-tagline {
+  font-size: 0.55rem;
+  color: hsl(var(--muted-foreground));
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .logo-title {
+    font-size: 1.1rem;
+  }
+  
+  .logo-tagline {
+    display: block;
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-title {
+    font-size: 1.25rem;
+  }
+  
+  .logo-tagline {
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   Navigation Layout
+   ========================================================================== */
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+}
+
+.nav-mobile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-mobile-toggle button {
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+
+.nav-mobile-menu {
+  width: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-menu {
+    display: none;
+  }
+}
+
+.nav-mobile-menu.closed {
+  max-height: 0;
+}
+
+.nav-mobile-menu.open {
+  max-height: 16rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.nav-mobile-inner {
+  padding: 0.5rem 1rem;
+}
+
+/* ==========================================================================
+   Section Layout
+   ========================================================================== */
+.section {
+  width: 100%;
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 0;
+  }
+}
+
+.section-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-content {
+    padding: 0 2rem;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   Grid Layouts
+   ========================================================================== */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-2-lg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid-2-lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Hero Slider Layout
+   ========================================================================== */
+.hero-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  min-height: 60vh;
+}
+
+@media (min-width: 768px) {
+  .hero-slider {
+    min-height: clamp(20rem, 70vh, 42rem);
+  }
+}
+
+.hero-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 60vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-slider-container {
+    height: clamp(20rem, 70vh, 40rem);
+  }
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.8s ease-out, transform 6s ease-out;
+}
+
+.hero-slide-0 {
+  background-image: url('/images/englewood-fl-tree-services.jpg');
+}
+
+.hero-slide-1 {
+  background-image: url('/images/englewood-fl-tree-removal.jpg');
+}
+
+.hero-slide-2 {
+  background-image: url('/images/englewood-fl-stump-grinding.jpg');
+}
+
+.hero-slide-3 {
+  background-image: url('/images/englewood-fl-tree-trimming.jpg');
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-slide.transitioning {
+  transition: opacity 0.5s ease-out;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-content-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  padding: clamp(3rem, 8vw, 6rem) 1.25rem 2rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+@media (min-width: 640px) {
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+.hero-btn-primary {
+  width: 100%;
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+}
+
+@media (min-width: 640px) {
+  .hero-btn-primary {
+    width: auto;
+  }
+}
+
+.hero-btn-outline {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .hero-btn-outline {
+    width: auto;
+  }
+}
+
+.hero-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.hero-slider:hover .hero-nav-btn {
+  opacity: 1;
+}
+
+.hero-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-nav-prev {
+  left: 1rem;
+}
+
+.hero-nav-next {
+  right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-nav-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .hero-nav-prev {
+    left: 2rem;
+  }
+  
+  .hero-nav-next {
+    right: 2rem;
+  }
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.hero-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-dot.active {
+  background-color: hsl(var(--primary));
+  transform: scale(1.3);
+}
+
+/* ==========================================================================
+   Footer Layout
+   ========================================================================== */
+.footer {
+  width: 100%;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-content {
+    padding: 0 2rem;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+  text-align: center;
+}
+
+/* ==========================================================================
+   Card Layout
+   ========================================================================== */
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon-sm {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Testimonial Layout
+   ========================================================================== */
+.testimonial-card {
+  position: relative;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 0.125rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   CTA Section Layout
+   ========================================================================== */
+.cta-content {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .cta-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-content {
+    padding: 0 2rem;
+  }
+}
+
+/* ==========================================================================
+   About Section Layout
+   ========================================================================== */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.about-feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-feature-text h4 {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.about-feature-text p {
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Flex Utilities
+   ========================================================================== */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.flex-start {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Spacing Utilities
+   ========================================================================== */
+.space-y-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-y-md > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-lg > * + * {
+  margin-top: 1.5rem;
+}
+
+.gap-sm {
+  gap: 0.5rem;
+}
+
+.gap-md {
+  gap: 1rem;
+}
+
+.gap-lg {
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   Width Utilities
+   ========================================================================== */
+.w-full {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .sm-w-auto {
+    width: auto;
+  }
+}
+
+/* ==========================================================================
+   Mobile Phone Link
+   ========================================================================== */
+.phone-link-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.phone-link-mobile .phone-text {
+  display: none;
+}
+
+@media (min-width: 400px) {
+  .phone-link-mobile .phone-text {
+    display: inline;
+  }
+}
+
+/* ==========================================================================
+   Page Container
+   ========================================================================== */
+.page-container {
+  min-height: 100vh;
+  padding-top: 7.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding-top: 5rem;
+  }
+}
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
+.page-header {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Service Card Layout
+   ========================================================================== */
+.service-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .service-card-icon {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.service-card:hover .service-card-icon {
+  background-color: hsl(var(--primary) / 0.2);
+}
+
+/* ==========================================================================
+   Contact Card Layout
+   ========================================================================== */
+.contact-card-content {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .contact-card-content {
+    padding: 3rem;
+  }
+}
+
+.contact-icon-large {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+@media (min-width: 768px) {
+  .contact-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-info-item {
+  text-align: center;
+}
+
+.contact-info-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Gallery Grid
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Aspect Ratio
+   ========================================================================== */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* ==========================================================================
+   Footer Centered Layout
+   ========================================================================== */
+.footer-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-nav {
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Button Link Layout
+   ========================================================================== */
+.btn-link-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.btn-link-content-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Gallery Image Card
+   ========================================================================== */
+.gallery-card {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-card-image-wrapper {
+  position: relative;
+}
+
+.gallery-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-card:hover .gallery-card-image {
+  transform: scale(1.05);
+}
+
+.gallery-card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.gallery-card-caption {
+  padding: 0.75rem;
+}
+
+/* ==========================================================================
+   Gallery Placeholder
+   ========================================================================== */
+.gallery-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.gallery-placeholder-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   Contact Section Narrow
+   ========================================================================== */
+.section-narrow {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-narrow {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-narrow {
+    padding: 0 2rem;
+  }
+}
+
+/* ==========================================================================
+   Contact Card Header
+   ========================================================================== */
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   Contact Button Container
+   ========================================================================== */
+.contact-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Contact Description
+   ========================================================================== */
+.contact-description {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Relative Position
+   ========================================================================== */
+.pos-relative {
+  position: relative;
+}
