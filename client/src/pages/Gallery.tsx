@@ -48,7 +48,7 @@ export default function Gallery() {
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const { data: apiImages, isLoading } = useQuery<GalleryImage[]>({
-    queryKey: ["/api/gallery"],
+    queryKey: ["/data/gallery.json"],
   });
 
   const galleryImages = apiImages && apiImages.length > 0 ? apiImages : fallbackImages;
