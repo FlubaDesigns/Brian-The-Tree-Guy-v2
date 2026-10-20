@@ -20,7 +20,7 @@ function ServiceSkeleton() {
 
 export default function Services() {
   const { data: services, isLoading, error } = useQuery<Service[]>({
-    queryKey: ["/api/services"],
+    queryKey: ["/data/services.json"],
   });
 
   return (
